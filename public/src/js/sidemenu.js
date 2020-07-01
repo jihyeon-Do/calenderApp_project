@@ -46,6 +46,8 @@ const randomColor = () => {
     return rc;
   }
 };
+
+
 const getNextOrder = () => Math.max(0, ...tableList.map(({ order }) => order)) + 1;
 const addListCalender = content => {
   const newCalenderList = {
@@ -84,6 +86,7 @@ const changeCompleted = (order, checked) => {
   patchChecked(order, newChecked);
   render();
 };
+
 const showOnload = matchingUser => {
   let option = '';
   matchingUser.forEach(list => {
@@ -91,6 +94,7 @@ const showOnload = matchingUser => {
   });
   document.getElementById('select-schedule').innerHTML = option;
 };
+
 const removeCalenderList = order => {
   tableList = tableList.filter(list => +order !== list.order);
   const deleteSchedules = schedules.filter(list => list.fkTable === +order);
